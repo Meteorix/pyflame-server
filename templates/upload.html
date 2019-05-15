@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pyflame-server</title>
+</head>
+<body>
+    <h1>pyflame-server demo</h1>
+    <div>
+        <p>start python to profile</p>
+        <code>./pyflame -t python3.5 -c "print(sum(i for i in range(1000000))) > profile.txt </code>
+        <p>or attach python pid to profile, -s seconds -p pid </p>
+        <code>sudo ./pyflame -s 5 -p 28947 > profile.txt </code>
+        <p>upload to pyflame-server</p>
+        <code>curl -F "file=@profile.txt" http://172.22.22.230:5000/upload</code>
+    </div>
+    <br>
+
+    <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
+        <input type=file name=file>
+        <input type=submit>
+    </form>
+    <div>
+    </div>
+</body>
+</html>
