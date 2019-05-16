@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pyflame-server</title>
+</head>
+<body>
+    <h1>pyflame-server</h1>
+    <div>
+        <ul>
+        {% for i in data %}
+            <li><a href="{{i['url']}}">{{i['name']}}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+

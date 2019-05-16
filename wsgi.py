@@ -29,6 +29,19 @@ def upload():
         return render_template("upload.html")
 
 
+@app.route("/svg")
+def svg_list():
+    data = []
+    fs = os.listdir(UPLOAD_DIR)
+    for f in fs:
+        if not f.endswith(".svg"):
+            continue
+        name = os.path.basename(f)
+        url = request.url_root + "svg/" + name
+        data.append({"url": url, "name": name})
+    return render_template("list.html", data=data)
+
+
 @app.route("/svg/<filename>")
 def svg(filename):
     filepath = os.path.join(UPLOAD_DIR, filename)
