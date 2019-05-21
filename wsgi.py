@@ -56,7 +56,7 @@ def pyflame():
 
 
 def txt_2_svg(txt, svg):
-    cmd = "./flamegraph.pl %s > %s" % (txt, svg)
+    cmd = "./flamegraph.pl %s --color=python > %s" % (txt, svg)
     out = sb.check_output(cmd, shell=True)
     return out
 

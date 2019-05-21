@@ -400,11 +400,11 @@ sub color {
 	# multi palettes
 	if (defined $type and $type eq "python") {
 		if ($name =~ m:.*\.py:) {	# Python (match .py in path)
-			$type = "orange";
+			$type = "green";
 		} elsif ($name =~ m:\<.*?\>.*:){   # Python built-in
 			$type = "yellow"
 		} elsif ($name =~ m:0x.*:) {	# C++
-			$type = "green";
+			$type = "orange";
 		} else {			# others
 			$type = "red";
 		}
