@@ -7,13 +7,13 @@
     <h1>pyflame-server</h1>
     <div>
         <p>1. get pyflame for py2.6 py2.7 py3.4 py3.5 py3.6 py3.7</p>
-        <code>curl -o pyflame http://172.22.22.230:5000/pyflame ; chmod +x pyflame</code>
+        <code>curl -o pyflame {{url_root}}pyflame ; chmod +x pyflame</code>
         <p>2.1 start python to profile</p>
         <code>./pyflame -t python3.6 -c "print(sum(i for i in range(1000000)))" > profile.txt </code>
         <p>2.2 or attach python pid to profile, -s seconds -p pid, <a href="https://pyflame.readthedocs.io/en/latest/usage.html">reference</a> </p>
         <code>sudo ./pyflame -s 5 -p 28947 > profile.txt </code>
         <p>3 upload to pyflame-server</p>
-        <code>curl -F "file=@profile.txt" http://172.22.22.230:5000/upload</code>
+        <code>curl -F "file=@profile.txt" {{url_root}}upload</code>
         <p>4 visit the url printed by curl, <a href="http://172.22.22.230:5000/svg">samples here</a></p>
     </div>
     <br>

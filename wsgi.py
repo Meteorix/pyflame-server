@@ -26,7 +26,7 @@ def upload():
 
         return request.url_root + "svg/" + os.path.basename(svgpath) + "\n"
     else:
-        return render_template("upload.html")
+        return render_template("upload.html", url_root=request.url_root)
 
 
 @app.route("/svg")
