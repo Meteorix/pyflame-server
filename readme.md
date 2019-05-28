@@ -12,15 +12,15 @@ pip install -r requirements.txt
 python wsgi.py
 ```
 
-visit http://172.22.22.230:5000/
+visit http://localhost:5000/
 
-> change '172.22.22.230' to your server ip
+> change `localhost` to your host ip
 
 # Usage
 
 1 get pyflame for py2.6 py2.7 py3.4 py3.5 py3.6 py3.7
 ``` shell
-curl -o pyflame http://172.22.22.230:5000/pyflame ; chmod +x pyflame
+curl -o pyflame http://<your-host-ip>:5000/pyflame ; chmod +x pyflame
 ```
 
 2.1 start python to profile
@@ -35,7 +35,7 @@ sudo ./pyflame -s 5 -p 28947 > profile.txt
 
 3 upload to pyflame-server
 ```shell
-curl -F "file=@profile.txt" http://172.22.22.230:5000/upload
+curl -F "file=@profile.txt" http://<your-host-ip>:5000/upload
 ```
 
 4 visit the url printed by curl, samples here
