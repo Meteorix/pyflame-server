@@ -1,6 +1,7 @@
 from gevent.monkey import patch_all; patch_all()
 from gevent.pywsgi import WSGIServer
 from flask import Flask, request, render_template, Response, send_file
+from datetime import datetime
 import subprocess as sb
 import time
 import os
@@ -38,7 +39,12 @@ def svg_list():
             continue
         name = os.path.basename(f)
         url = request.url_root + "svg/" + name
-        data.append({"url": url, "name": name})
+        path = os.path.join(UPLOAD_DIR, name)
+        mtime = os.path.getmtime(path)
+        mtime = datetime.fromtimestamp(mtime)
+        data.append({"url": url, "name": name, "mtime": mtime})
+    data.sort(key=lambda i:i["mtime"])
+    data.reverse()
     return render_template("list.html", data=data)
 
 
