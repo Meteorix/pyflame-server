@@ -33,6 +33,11 @@ curl -o pyflame http://<your-host-ip>:5000/pyflame ; chmod +x pyflame
 sudo ./pyflame -s 5 -p 28947 > profile.txt
 ```
 
+2.3 if you need to profile c stack at the same time (when you are curious about **idle**), add ``-c`` option
+```shell
+sudo ./pyflame -c -s 5 -p 28947 > profile.txt
+```
+
 3 upload to pyflame-server
 ```shell
 curl -F "file=@profile.txt" http://<your-host-ip>:5000/upload
