@@ -25,7 +25,7 @@ curl -o pyflame http://<your-host-ip>:5000/pyflame ; chmod +x pyflame
 
 2.1 start python to profile
 ```shell
-./pyflame -t python3.6 -c "print(sum(i for i in range(1000000)))" > profile.txt
+./pyflame -t python test.py > profile.txt
 ```
 
 2.2 or attach python pid to profile, -s seconds -p pid, reference
